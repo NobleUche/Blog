@@ -1,0 +1,7 @@
+<h1 style="font-size: larger;color: black;">Latest Stories</h1>
+
+
+
+{% for post in posts %}
+<h2 style="text-decoration: none; text-decoration-color: black;"><a href="/post/{{post.id}}">{{post.title}}</a></h2>
+{% endfor %}

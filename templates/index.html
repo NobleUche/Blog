@@ -1,0 +1,49 @@
+{% load static %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Noble's Blog</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{% static 'css/grid/reset.css' %}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{% static 'css/grid/text.css' %}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{% static 'css/grid/960.css' %}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{% static 'css/stylesheet.css' %}" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper" class="container_12">
+  <div id="main" class="grid_12">
+    <h1>Noble's Blog</h1>
+    <h2><a href="{% url 'list' %}">Top Stories of the day >>>>></a></h2>
+    <a href="#"><img src="{% static 'img/photo.jpg' %}" alt="" /></a> </div>
+  <div id="articles" class="grid_12">
+    <ul>
+      <li>
+        {% for post in posts reversed %}
+        <h2><a href="/post/{{post.id}}">{{post.title}}</a></h2>
+        <div style="color: black; font-style: oblique;" class="meta">{{post.created_at}}</div>
+        <p style="font-size:medium;color: black;"> {{post.body|truncatewords:10}} </p>
+        {% endfor %}
+        <a href="#" class="more">read more &raquo;</a> </li>
+        
+      <li>
+    </ul>
+    <div id="quote">
+      <p><span class="symbol">&#148;</span>Life is never fair and perhaps it is a good thing for most of us that it is not<span class="author">&#151; Oscar Wilde</span></p>
+    </div>
+    <div id="description">
+      <p><img src="{% static 'img/blank_gravatar.png' %}" alt="" width="50" height="50" /> This blog is for entertainment, football commentary and tech information anything other than that please disregard.... </p>
+    </div>
+  </div>
+  <div id="footer" class="grid_12">
+    <p>Designed by Noble Uche. Image courtesy of OGB designs.</p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="about">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</div>
+<div align=center> WE PROVIDE YOU WITH THE BEST AND LATEST NEWS</div></body>
+</html>
